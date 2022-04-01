@@ -28,7 +28,7 @@ class Test_create_episode:
         result_put: Response = Iasip_api.put_new_episode(episode_id)
         Checking.check_status_code(result_put, 200)
         Checking.check_json_token(result_put, ['message'])
- 
+
         print("Метод GET PUT")
         result_get: Response = Iasip_api.get_new_episode(episode_id)
         Checking.check_status_code(result_get, 200)
