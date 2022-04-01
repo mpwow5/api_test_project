@@ -35,7 +35,7 @@ class Iasip_api:
     def get_new_episode(episode_id):
 
         get_resource = "/api/episodes/" #  Ресурс метода GET
-        get_url = BASE_URL + get_resource + "?episode_id=" + episode_id
+        get_url = BASE_URL + get_resource + "?episode_id=" + str(episode_id)
         print(get_url)
         result_get = Http_methods.get(get_url)
         print(result_get.text)
@@ -46,13 +46,14 @@ class Iasip_api:
     @staticmethod
     def put_new_episode(episode_id):
         put_resource = "/api/episodes/"
-        put_url = BASE_URL + put_resource + "?episode_id=" + episode_id
+        put_url = BASE_URL + put_resource + "?episode_id=" + str(episode_id)
+        print(put_url)
         json_for_update_new_episode = {
             "IMDB rating": 9.2,
             "director": "Richie Keen"
         }
         result_put = Http_methods.put(put_url, json_for_update_new_episode)
-        print(result_put)
+        print(result_put.text)
         return result_put
 
     """Метод для удаления новой локации"""
@@ -66,5 +67,6 @@ class Iasip_api:
         }
         result_delete = Http_methods.delete(delete_url, json_for_delete_episode)
         print(delete_url)
+        print(result_delete.text)
         return result_delete
 
