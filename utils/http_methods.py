@@ -1,12 +1,11 @@
 import requests
 
-"""Кастомные http методы"""
+"""Class contains get, put, post and delete methods"""
 
 
 class Http_methods:
-    headers = {'Content-Type': 'application/json'}  # Информация передается с запросами и возращается с ответами
+    headers = {'Content-Type': 'application/json'}
     cookie = ''
-    # Статические методы
 
     @staticmethod
     def get(url):
@@ -22,9 +21,8 @@ class Http_methods:
     def put(url, body):
         result = requests.put(url, json=body, headers=Http_methods.headers, cookies=Http_methods.cookie)
         return result
+
     @staticmethod
     def delete(url, body):
         result = requests.delete(url, json=body, headers=Http_methods.headers, cookies=Http_methods.cookie)
         return result
-
-
