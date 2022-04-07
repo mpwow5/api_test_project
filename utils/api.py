@@ -26,9 +26,7 @@ class Iasip_api:
 
         post_resource = '/api/episodes/'
         post_url = BASE_URL + post_resource
-        print(post_url)
         result_post = Http_methods.post(post_url, json_for_create_new_episode)
-        print(result_post.text)
         return result_post
 
     """Method for getting episode info - method GET"""
@@ -37,9 +35,7 @@ class Iasip_api:
     def get_new_episode(episode_id):
         get_resource = "/api/episodes/"
         get_url = BASE_URL + get_resource + "?episode_id=" + str(episode_id)
-        print(get_url)
         result_get = Http_methods.get(get_url)
-        print(result_get.text)
         return result_get
 
     """Method for updating episode info - method PUT"""
@@ -48,13 +44,11 @@ class Iasip_api:
     def put_new_episode(episode_id):
         put_resource = "/api/episodes/"
         put_url = BASE_URL + put_resource + "?episode_id=" + str(episode_id)
-        print(put_url)
         json_for_update_new_episode = {
             "IMDB rating": 9.2,
             "director": "Richie Keen"
         }
         result_put = Http_methods.put(put_url, json_for_update_new_episode)
-        print(result_put.text)
         return result_put
 
     """Method for delete episode info - method DELETE"""
@@ -67,6 +61,4 @@ class Iasip_api:
             "episode_id": 6
         }
         result_delete = Http_methods.delete(delete_url, json_for_delete_episode)
-        print(delete_url)
-        print(result_delete.text)
         return result_delete
