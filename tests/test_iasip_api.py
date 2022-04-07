@@ -27,6 +27,7 @@ class Test_create_episode:
         result_put: Response = Iasip_api.put_new_episode(episode_id)
         Checking.check_status_code(result_put, 200)
         Checking.check_json_token(result_put, ['message'])
+        Checking.check_json_value(result_put, 'message', 'Episode successfuly updated')
 
         print("Checking new episode - GET")
         result_get: Response = Iasip_api.get_new_episode(episode_id)
@@ -35,6 +36,8 @@ class Test_create_episode:
         print("Deleting new episode - DELETE")
         result_delete: Response = Iasip_api.delete_new_episode()
         Checking.check_status_code(result_delete, 200)
+        Checking.check_json_token(result_delete, ['message'])
+        Checking.check_json_value(result_delete, 'message', 'Episode successfuly deleted')
 
         print("Checking new episode - GET")
         result_get: Response = Iasip_api.get_new_episode(episode_id)
